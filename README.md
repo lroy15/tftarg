@@ -2,6 +2,10 @@
  
 A simple wrapper around Terraform that grabs resources/modules from git diff and lets you select the ones you want to plan/apply.
 
+**The program assumes your branch is named master**
+
+You can change it to main in main.go on line 24.
+
 ## Installation
 Download the binary from the release page, or clone the repo and run:
 
