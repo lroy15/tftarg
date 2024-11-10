@@ -1,7 +1,8 @@
-### Tftarg
+# TF Targ
  
-A simple wrapper around terraform that grabs resources from git diff and lets you select the ones you want to plan/apply.
+A simple wrapper around Terraform that grabs resources/modules from git diff and lets you select the ones you want to plan/apply.
 
+## Installation
 Download the binary from the release page, or clone the repo and run:
 
 - `go mod tidy`
@@ -10,3 +11,5 @@ Download the binary from the release page, or clone the repo and run:
 OR just run `go install` - This will build and place the binary in your Go binary path (default is $GOPATH/bin or $HOME/go/bin in modern Go setups). You can run the program from any directory once it's installed.
 
 
+
+![Alt Text](https://i.imgur.com/gLTcjO6.gif)
