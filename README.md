@@ -2,6 +2,8 @@
  
 A simple wrapper around Terraform that grabs resources/modules from git diff and lets you select the ones you want to plan/apply.
 
+Using the `huh` library from Charm for the prompts: https://github.com/charmbracelet/huh
+
 **The program assumes your primary branch is named master.**
 
 You can change it to main in main.go on line 24.
