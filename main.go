@@ -86,6 +86,7 @@ func main() {
 				Options(
 					huh.NewOption("plan", "plan"),
 					huh.NewOption("apply", "apply"),
+					huh.NewOption("print", "print"),
 				).
 				Value(&command),
 		),
@@ -103,6 +104,14 @@ func main() {
 
 	fullCommandString := append([]string{command}, commandString...)
 
+	if command == "print" {
+		anySlice := make([]any, len(commandString))
+		for i, v := range commandString {
+			anySlice[i] = v
+		}
+		fmt.Println(anySlice...)
+		os.Exit(0)
+	}
 	tfcommand := exec.Command("terraform", fullCommandString...)
 	fmt.Printf("Executing command: %s %s\n", tfcommand.Path, strings.Join(tfcommand.Args[1:], " "))
 	tfcommand.Dir = "./"
