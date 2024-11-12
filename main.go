@@ -73,13 +73,11 @@ func main() {
 
 	options := huh.NewOptions(tfResources...)
 	form := huh.NewForm(
-
 		huh.NewGroup(huh.NewMultiSelect[string]().
 			Title("Choose an option").
 			Options(options...).
 			Value(&selectedResources),
 		),
-
 		huh.NewGroup(
 			huh.NewSelect[string]().
 				Title("Command").
@@ -114,7 +112,9 @@ func main() {
 	}
 	tfcommand := exec.Command("terraform", fullCommandString...)
 	fmt.Printf("Executing command: %s %s\n", tfcommand.Path, strings.Join(tfcommand.Args[1:], " "))
+
 	tfcommand.Dir = "./"
+	tfcommand.Stdin = os.Stdin
 	tfcommand.Stdout = os.Stdout
 	tfcommand.Stderr = os.Stderr
 
